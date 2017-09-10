@@ -2,33 +2,32 @@ cucumber-jvm-williamhill
 =====================
 
 Prerequisites:
-- Java JDK
-- Maven
-- Geckodriver and Chromedriver
-- configure path of drivers manuall in getChromeDriver() and getFireFoxDriver() within BrowserInit
+- Java JDK 1.8
+- Maven 3.3.9
+- Geckodriver and Chromedriver (appropriate for the execution environment)
+- configure path of drivers manual in getChromeDriver() and getFireFoxDriver() within BrowserInit
 
 Demo Reports
 
-Desktop View on FireFox running all test cases:
+<a href="http://htmlpreview.github.io/?https://github.com/xmaska/cucumber-jvm-williamhill/blob/master/report-desktop-spanish-firefox/index.html">Desktop View on FireFox running all test cases</a>
 
-http://htmlpreview.github.io/?https://github.com/xmaska/cucumber-jvm-williamhill/blob/master/report-desktop-spanish-firefox/index.html
+Please note that the test user on Spanish site does not have funds. However the assertion is parameterized, therefore the error message showing betslip error gets accepted.
+The second feature is running a login test againts the English site, but it returns javascript errors in console and breaks the main functionality. I tried to run the test from Spanish and Gibraltarian IP addresses, without success.
+   
+<a href="http://htmlpreview.github.io/?https://github.com/xmaska/cucumber-jvm-williamhill/blob/master/report-mobile-spanish-firefox/index.html">Mobile View on FireFox, running against English site</a>
 
-Mobile View on FireFox, running against English site
-http://htmlpreview.github.io/?https://github.com/xmaska/cucumber-jvm-williamhill/blob/master/report-mobile-spanish-firefox/index.html
 
-Starting Tests
+**Starting Tests**
 
 If you want to Specify Browser simulation and browser
- mvn test -Dtarget=Desktop -Dbrowser=FireFox
 
- or
+`mvn test -Dtarget=Desktop -Dbrowser=FireFox`
 
- mvn test -Dtarget=Desktop -Dbrowser=Chrome
+`mvn test -Dtarget=Desktop -Dbrowser=Chrome`
 
- To specify which tests to run:
+**To specify which tests to run**
 
- mvn test -Dtarget=Desktop -Dbrowser=FireFox -Dcucumber.options="--tags @WhillES"
+`mvn test -Dtarget=Desktop -Dbrowser=FireFox -Dcucumber.options="--tags @WhillES"`
 
- or
 
- mvn test -Dtarget=Desktop -Dbrowser=FireFox -Dcucumber.options="--tags @WhillEnLogin"
+`mvn test -Dtarget=Desktop -Dbrowser=FireFox -Dcucumber.options="--tags @WhillEnLogin"`
