@@ -14,6 +14,7 @@ import pageobjects.WhillPageObjectsEsDesktopTennis;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -99,6 +100,7 @@ public class WhillStepsES {
     @When("^I validate bet placement (.+)$")
     public void I_validate_bet_placement(String isSuccess) throws Throwable {
         PageFactory.initElements(driver, WhillPageObjectsEsDesktopBetSlip.class);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         if (isSuccess.equals("true")) {
             assertFalse(WhillPageObjectsEsDesktopBetSlip.errorMessage.isDisplayed());
         }else if (isSuccess.equals("false")) {
